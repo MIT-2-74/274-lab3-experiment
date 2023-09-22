@@ -109,7 +109,7 @@ int main (void) {
                 output_data[4] = volt;
 
                 server.sendData(output_data,NUM_OUTPUTS);              
-                wait(.001); //run outer control loop at 1kHz
+                ThisThread::sleep_for(1); //run outer control loop at 1kHz
             }
 
             // Cleanup after each experiment
