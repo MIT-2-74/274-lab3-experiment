@@ -40,7 +40,7 @@ void current_control() {
     float error = 0;
     theta = encoderA.getPulses()*(6.2831/1200.0);
     velocity = encoderA.getVelocity()*(6.2831/1200.0);
-    current = -(motorShield.readCurrentA()*(52.8/65536.0)-26.4); //read current for motor A in amps. Note: this is a slightly different current sensor so its a different conversion than last lab.            
+    current = -(motorShield.readCurrentA()*(30.0/65536.0)-15.0); //read current for motor A in amps. Note: this is a slightly different current sensor so its a different conversion than last lab.            
     error = current_d - current;
     
     volt = 0; // EDIT THIS to use your current control law from Lab 2
