@@ -46,23 +46,15 @@ void current_control() {
     volt = 0; // EDIT THIS to use your current control law from Lab 2
     
     duty  = volt/12.0;
-    if (duty >  1) {
-        duty =  1;
-    }
-    if (duty < -1) {
-        duty = -1;   
-    }
+    if (duty >  1) duty =  1;
+    if (duty < -1) duty = -1;
 
-    if (duty >= 0){
-        motorShield.motorAWrite(duty, 0); 
-    }
-    else if (duty < 0){
-        motorShield.motorAWrite(abs(duty), 1);
-    }
+    if (duty >= 0) motorShield.motorAWrite(duty, 0);
+    else           motorShield.motorAWrite(abs(duty), 1);
 }
 
 
-int main (void) {
+int main(void) {
     // Link the terminal with our server and start it up
     server.attachTerminal(pc);
     server.init();
@@ -118,5 +110,4 @@ int main (void) {
             motorShield.motorAWrite(0, 0); //turn motor A off
         } // end if
     } // end while
-    
 } // end main
